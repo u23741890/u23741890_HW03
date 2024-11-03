@@ -1,0 +1,142 @@
+﻿@model Tuple<IEnumerable<u23741890_HW3.Models.author>, IEnumerable<u23741890_HW3.Models.type>, IEnumerable<u23741890_HW3.Models.borrow>>
+
+@{
+    ViewBag.Title = "About"; <!-- Maintain -->
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors, Types, and Borrows Management</title>
+    <link rel="stylesheet" href="~/Content/HomePage.css">
+    <style>
+        body {
+            background-color: #f5f5dc;
+        }
+    </style>
+</head>
+<body>
+
+
+    <!-- Authors Table -->
+    <div class="table-container">
+        <div class="table-label">
+            <span>Authors</span>
+            <button class="create-button" onclick="alert('Create Author')">Create</button>
+        </div>
+        <table id="authors-table">
+            <thead>
+                <tr>
+                    <th>Author ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                </tr>
+            </thead>
+            @if (Model == null || !Model.Item1.Any())
+            {
+                <tbody><tr><td colspan="7">No authors found.</td></tr></tbody>
+            }
+
+            else
+            {
+                <tbody>
+                    @foreach (var item in Model.Item1)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.authorId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.surname)</td>
+
+                        </tr>
+
+                    }
+                </tbody>
+
+            }
+        </table>
+    </div>
+
+    <!-- Types Table -->
+    <div class="table-container">
+        <div class="table-label">
+            <span>Types</span>
+            <button class="create-button" onclick="alert('Create Type')">Create</button>
+        </div>
+        <table id="types-table">
+            <thead>
+                <tr>
+                    <th>Type ID</th>
+                    <th>Name</th>
+
+                </tr>
+            </thead>
+         
+                @if (Model == null || !Model.Item2.Any())
+                {
+                <tbody><tr><td colspan="7">No Types found.</td></tr></tbody>
+            }
+
+            else
+            {
+                <tbody>
+                    @foreach (var item in Model.Item2)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.typeId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.name)</td>
+                       
+                        </tr>
+
+                    }
+                </tbody>
+
+            }
+                
+            </table>
+    </div>
+
+    <!-- Borrows Table -->
+    <div class="table-container">
+        <div class="table-label">
+            <span>Borrows</span>
+            <button class="create-button" onclick="alert('Create Borrow')">Create</button>
+        </div>
+        <table id="borrows-table">
+            <thead>
+                <tr>
+                    <th>Borrow ID</th>
+                    <th>Student ID</th>
+                    <th>Book ID</th>
+                    <th>Taken Date</th>
+                    <th>Brought Date</th>
+                </tr>
+            </thead>
+            @if (Model == null || !Model.Item3.Any())
+            {
+                <tbody><tr><td colspan="7">No Borrows found.</td></tr></tbody>
+            }
+
+            else
+            {
+                <tbody>
+                    @foreach (var item in Model.Item3)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.borrowId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.student)</td>
+                            <td>@Html.DisplayFor(modelItem => item.book)</td>
+                            <td>@Html.DisplayFor(modelItem => item.takenDate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.broughtDate)</td>
+                        </tr>
+
+                    }
+                </tbody>
+
+            }
+        </table>
+    </div>
+
+</body>
+</html>

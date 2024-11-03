@@ -1,0 +1,96 @@
+﻿body {
+    background-color: #f5f5dc; /* Crème background */
+    font-family: Arial, sans-serif;
+    color: #3e2723; /* Dark brown text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+}
+
+/* Title Styles */
+h1, h2 {
+    color: #3e2723;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Report Container Styles */
+.report-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    text-align: center;
+}
+
+.generate-button, .option-button {
+    background-color: #795548; /* Medium brown */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease;
+}
+
+    .generate-button:hover, .option-button:hover {
+        background-color: #5d4037; /* Slightly darker brown */
+    }
+
+/* Report Display Styles */
+.report-display {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #f0e7db; /* Light crème background */
+    color: #3e2723;
+    border: 2px solid #d7ccc8; /* Light brown border */
+    border-radius: 10px;
+    min-height: 100px;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+    font-size: 1em;
+}
+
+/* Report Options Styles */
+.report-options {
+    margin-top: 15px;
+}
+
+/* Archive Container Styles */
+.archive-container {
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.archive-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+    .archive-list li {
+        background-color: #f0e7db; /* Light crème background */
+        color: #3e2723;
+        border: 2px solid #d7ccc8; /* Light brown border */
+        border-radius: 8px;
+        padding: 10px;
+        margin: 8px 0;
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+    }

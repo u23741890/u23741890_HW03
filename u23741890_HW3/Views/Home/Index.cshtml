@@ -1,0 +1,153 @@
+﻿@model Tuple<IEnumerable<u23741890_HW3.Models.student>, IEnumerable<u23741890_HW3.Models.book>>
+
+
+
+@{
+    ViewBag.Title = "Home Page"; // Home
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students and Books Management</title>
+    <link rel="stylesheet" href="~/Content/HomePage.css">
+    <style>
+        body {
+            background-color: #f5f5dc;
+        }
+
+        .modal {
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        
+    </style>
+
+    <script>
+             document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.querySelector('#modal');
+            const openModalButton = document.querySelector('#openBookModalButton');
+            const closeModalButton = document.querySelector('.close-button');
+
+            openModalButton.addEventListener('click', () => {
+                modal.showModal();
+            });
+
+            closeModalButton.addEventListener('click', () => {
+                modal.close();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <!-- Students Table -->
+    <div class="table-container">
+        <div class="table-label">
+            <span>Students</span> 
+            <button class="create-button" onclick="alert('Create Student')">Create</button>
+        </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Birth Date</th>
+                    <th>Gender</th>
+                    <th>Class</th>
+                    <th>Point</th>
+                </tr>
+            </thead>
+            @if (Model == null || !Model.Item1.Any())
+            {
+                <tbody><tr><td colspan="7">No students found.</td></tr></tbody>
+            }
+
+            else
+            {
+                <tbody>
+                    @foreach (var item in Model.Item1)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.studentId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.surname)</td>
+                            <td>@Html.DisplayFor(modelItem => item.birthdate)</td>
+                            <td>@Html.DisplayFor(modelItem => item.gender)</td>
+                            <td>@Html.DisplayFor(modelItem => item.@class)</td>
+                            <td>@Html.DisplayFor(modelItem => item.point)</td>
+
+                        </tr>
+
+                    }
+                </tbody>
+
+            }
+        </table>
+
+    </div>
+
+    <!-- Books Table -->
+    <div class="table-container">
+        <div class="table-label">
+            <span>Books</span>
+
+            <button id="openBookModalButton" class="create-button">Create</button>
+
+            <dialog class="modal" id="modal">
+                <p>Create a new book entry here.</p>
+                <button class="close-button">Close</button>
+            </dialog>
+
+        </div>
+        <table id="books-table">
+            <thead>
+                <tr>
+                    <th>Book ID</th>
+                    <th>Name</th>
+                    <th>Page Count</th>
+                    <th>Point</th>
+                    <th>Author</th> <!-- reference and display author from authors table -->
+                    <th>Type</th> <!-- reference and display type from types table-->
+                    <th>Status</th>
+                </tr>
+            </thead>
+            @if (Model == null || !Model.Item2.Any())
+            {
+                <tbody><tr><td colspan="7">No books found.</td></tr></tbody>
+            }
+
+            else
+            {
+                <tbody>
+                    @foreach (var item in Model.Item2)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.bookId)</td>
+                            <td>@Html.DisplayFor(modelItem => item.name)</td>
+                            <td>@Html.DisplayFor(modelItem => item.pagecount)</td>
+                            <td>@Html.DisplayFor(modelItem => item.point)</td>
+                            <td>@Html.DisplayFor(modelItem => item.author)</td>
+                            <td>@Html.DisplayFor(modelItem => item.type)</td>
+                           
+                        </tr>
+
+                    }
+                </tbody>
+
+            }
+
+
+        </table>
+    </div>
+
+</body>
+
+
+</html>

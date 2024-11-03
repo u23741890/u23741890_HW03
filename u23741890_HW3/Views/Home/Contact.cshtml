@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Contact"; <!-- Report -->
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Report</title>
+    <link rel="stylesheet" href="~/Content/Report.css">
+    <style>
+        body {
+            background-color: #f5f5dc;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <!-- Report Generation Section -->
+    <div class="report-container">
+        <h2>Report:</h2>
+        <button class="generate-button" onclick="generateReport()">Generate Report</button>
+
+        <!-- Report Display Area -->
+        <div class="report-display" id="report-display">
+            <!-- The generated report content will appear here -->
+            Report content will be displayed here.
+        </div>
+
+        <!-- Options under the report -->
+        <div class="report-options">
+            <button class="option-button" onclick="setFileName()">File Name</button>
+            <button class="option-button" onclick="setFileType()">File Type</button>
+            <button class="option-button" onclick="saveReport()">Save</button>
+        </div>
+    </div>
+
+    <!-- Archive Section -->
+    <div class="archive-container">
+        <h2>Archive:</h2>
+        <ul class="archive-list" id="archive-list">
+            <!-- Previous reports will be listed here -->
+        </ul>
+    </div>
+
+
+
+</body>
+</html>
